@@ -2,6 +2,8 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.2.0-next.1.
 
+![Imagen_resumen](https://github.com/AnaNunezRejon/TiendaDeRopa-Angular17-Localstorage/assets/140715043/0ea1f6ee-6bb5-43b4-ab27-f8be776b23f2)
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.

@@ -1,0 +1,16 @@
+
+.boton-añadircarrito{
+  color: white;
+  border: 1px solid rgb(233, 55, 85);
+  background-color: rgb(233, 55, 85);
+}
+.boton-añadircarrito:hover{
+  border: 1px solid rgb(83, 27, 236);
+  background-color: rgb(83, 27, 236);
+}
+.boton-añadircarrito[disabled] {
+  color: black;
+  border: 1px solid gray;
+  background-color: lightgray;
+  cursor: not-allowed;
+}

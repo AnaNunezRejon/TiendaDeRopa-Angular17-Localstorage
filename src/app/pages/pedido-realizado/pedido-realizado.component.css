@@ -1,0 +1,26 @@
+.background-image {
+  background-image: url('../../../assets/img/login-bg-finalizar-compra.png');
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+}
+.container {
+  width: 40%;
+}
+.mensaje {
+  background-color: rgba(83, 27, 236, 0.5);
+  color: white;
+  padding: 20px;
+  border-radius: 10px;
+  padding: 5rem;
+}
+.btn-inicio{
+  border-color: rgb(255, 255, 255);
+  background-color: rgb(233, 55, 85);
+}
+.btn-inicio:hover{
+  border-color: rgb(255, 255, 255);
+  background-color: rgb(83, 27, 236);
+}

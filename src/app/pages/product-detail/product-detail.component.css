@@ -1,0 +1,89 @@
+.product-detail-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  padding-bottom: 5rem;
+}
+.product-image {
+  flex: 1;
+  width: 50%;
+}
+.product-image img{
+  max-width: 100%;
+  height: auto;
+}
+.product-details {
+  flex: 1;
+  padding: 0 20px;
+}
+.product-details h1 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+.product-ref {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 10px;
+}
+.product-price {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+.product-sizes {
+  margin-bottom: 20px;
+}
+.size-options {
+  display: flex;
+}
+.size-options input[type="radio"] {
+  display: none;
+}
+.size-options label {
+  border-radius: 10rem;
+  text-align: center;
+  width: 2.3rem;
+  padding: 5px 10px;
+  border: 1px solid #ccc;
+  margin-right: 10px;
+  cursor: pointer;
+  margin-bottom: 1rem;
+}
+.size-options label:hover {
+  background-color: #f0f0f0;
+}
+.add-to-cart-button {
+  padding: 10px 20px;
+  background-color: #000;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+.size-guide {
+  margin-bottom: 20px;
+}
+.payment-options p {
+  margin-bottom: 10px;
+}
+.servicios{
+  border: 1px solid rgb(188, 163, 255);
+  padding: 1rem;
+  font-size: small;
+}
+.boton-añadircarrito{
+  color: white;
+  border: 1px solid rgb(233, 55, 85);
+  background-color: rgb(233, 55, 85);
+  margin-bottom: 2rem;
+  margin-top: 1rem;
+}
+.boton-añadircarrito:hover{
+  border: 1px solid rgb(83, 27, 236);
+  background-color: rgb(83, 27, 236);
+}
+.boton-añadircarrito[disabled] {
+  color: black;
+  border: 1px solid gray;
+  background-color: lightgray;
+  cursor: not-allowed;
+}

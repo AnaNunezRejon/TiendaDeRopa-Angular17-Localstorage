@@ -1,0 +1,16 @@
+<div class="container" style="padding-bottom: 5rem; margin-top: 4rem;">
+  <div class="row g-2">
+    <div class="col-md-4" *ngFor="let producto of productos">
+      <div class="card">
+        <img [src]="producto.imagen" (click)="irADetalle(producto.categoria, producto.nombre)" class="card-img-top producto-imagen" style="height: 400px; object-fit: cover; cursor: pointer;"  alt="{{ producto.nombre }}" >
+        <div class="card-body">
+          <h5 (click)="irADetalle(producto.categoria, producto.nombre)" class="card-title" style="cursor: pointer;">{{ producto.nombre }}</h5>
+          <p class="card-text">{{ producto.precio }}</p>
+          <button (click)="comprarProducto(producto)" class="btn boton-añadircarrito" [disabled]="!producto.stock">
+            {{ producto.stock ? 'Agregar al carrito' : 'Agotado' }}
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

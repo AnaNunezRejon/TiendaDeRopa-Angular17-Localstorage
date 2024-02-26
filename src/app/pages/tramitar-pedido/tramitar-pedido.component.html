@@ -1,0 +1,107 @@
+<section class="container mt-3" style="padding-bottom: 5rem; padding-top: 3rem;">
+  <div class="row align-items-stretch">
+    <div class="col-md-4">
+      <h4 class="titulo-formulario">Rellena todos los campos para realizar la compra</h4>
+      <div>
+        <form [formGroup]="modelForm" class="caja" (ngSubmit)="getDataForm()">
+          <div class="my-2">
+            <label for="name" class="form-label">Nombre y Apellidos</label>
+            <input type="text" class="form-control" placeholder="Introduce tu nombre" id="name" formControlName="name">
+            @if(checkControl('name', 'required')){
+            <p class="error">Campo requerido</p>
+            }
+            @if(checkControl('name', 'minlenght')){
+            <P class="error">El campo tiene que tener minimo 3 caracteres</P>
+            }
+          </div>
+
+          <div class="my-2">
+            <label for="email" class="form-label">Email</label>
+            <input type="text" class="form-control" placeholder="Introduce tu email" id="email" formControlName="email">
+            @if(checkControl('email', 'required')){
+            <p class="error">Campo requerido</p>
+            }
+            @if(checkControl('email', 'pattern')){
+            <p class="error">Campo no es de tipo email</p>
+            }
+          </div>
+          <div class="my-2">
+            <label for="dni" class="form-label">DNI</label>
+            <input type="text" class="form-control" placeholder="Introduce tu dni" id="dni" formControlName="dni">
+            @if(checkControl('dni', 'dnivalidador')){
+            <p class="error">{{modelForm.get('dni')?.errors?.['dnivalidador']}}</p>
+            }
+          </div>
+          <div class="my-2">
+            <label for="password" class="form-label">Contraseña</label>
+            <input type="password" class="form-control" placeholder="Introduce tu contraseña" id="password"
+              formControlName="password">
+          </div>
+          <div class="my-2">
+            <label for="repitepass" class="form-label">Repite contraseña</label>
+            <input type="password" class="form-control" placeholder="Repite tu contraseña" id="repitepass"
+              formControlName="repitepass">
+            <div
+              *ngIf="modelForm.hasError('checkpassword') && modelForm.get('repitepass')?.dirty && modelForm.get('password')?.dirty">
+              <p class="error">Los campos password y repite password no coinciden</p>
+            </div>
+          </div>
+
+        </form>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <h4 class="titulo-formulario">Introduce los datos de tu tarjeta de crédito</h4>
+      <div>
+        <form [formGroup]="tarjetaForm" class="caja">
+          <div class="contenedor-tarjeta">
+            <div class="div-izquierdo">
+              <div class="my-2">
+                <label for="numeroTarjeta" class="form-label">Número de Tarjeta</label>
+                <input type="text" class="form-control" id="numeroTarjeta" formControlName="numeroTarjeta">
+                <div *ngIf="tarjetaForm.get('numeroTarjeta')?.invalid && tarjetaForm.get('numeroTarjeta')?.touched"
+                  class="error">Debe contener 16 números.</div>
+              </div>
+              <div class="my-2">
+                <label for="titularTarjeta" class="form-label">Titular de la Tarjeta</label>
+                <input type="text" class="form-control" id="titularTarjeta" formControlName="titularTarjeta">
+                <div *ngIf="tarjetaForm.get('titularTarjeta')?.invalid && tarjetaForm.get('titularTarjeta')?.touched"
+                  class="error">Los datos introducidos no son correctos</div>
+              </div>
+            </div>
+            <div class="div-derecho">
+              <div class="my-2">
+                <label for="codigoSeguridad" class="form-label">Código de Seguridad</label>
+                <input type="text" class="form-control" id="codigoSeguridad" formControlName="codigoSeguridad">
+                <div *ngIf="tarjetaForm.get('codigoSeguridad')?.invalid && tarjetaForm.get('codigoSeguridad')?.touched"
+                  class="error">El código de serguridad debe ser de tres dígitos</div>
+              </div>
+              <div class="my-2">
+                <label for="fechaCaducidad" class="form-label">Fecha de caducidad</label>
+                <input type="text" class="form-control" placeholder="MM/YY" id="fechaCaducidad"
+                  formControlName="fechaCaducidad" (input)="formatFecha($event)">
+                <div *ngIf="tarjetaForm.get('fechaCaducidad')?.invalid && tarjetaForm.get('fechaCaducidad')?.touched">
+                  <p class="error">Formato de fecha inválido (MM/YY)</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <aside class="aside-contenedor">
+        <div class="aside-contenido">
+          <h3 class="titulo-aside">Cesta</h3>
+          <div class="textos-carrito">
+            <p class="texto-carrito">Te faltan 0,01 € para conseguir tu</p>
+            <p class="texto-carrito-mayus">ENVÍO ESTÁNDAR GRATUITO</p>
+          </div>
+          <p class="precio-aside">Total: {{ calcularTotalCesta() }}</p>
+          <input (click)="irAPedidoRealizado()" type="submit" value="Realizar pedido"
+            class="btn btn-info mt-2 boton-comprar" [disabled]="!modelForm.valid">
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>

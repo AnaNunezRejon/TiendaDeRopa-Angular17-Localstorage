@@ -1,0 +1,19 @@
+
+<div class="container" style="padding-bottom: 5rem; margin-top: 4rem;">
+  <h2 class="mb-3">Listado de Productos</h2>
+  <div class="row g-3">
+    <div class="col-md-4" *ngFor="let producto of productos">
+      <div class="card" style="height: 350px;">
+        <img [src]="producto.imagen" (click)="irADetalle(producto.categoria, producto.nombre)" class="card-img-top" alt="{{ producto.nombre }}" style="height: 200px; object-fit: cover; cursor: pointer;">
+        <div class="card-body">
+          <h5 (click)="irADetalle(producto.categoria, producto.nombre)" class="card-title" style="cursor: pointer;">{{ producto.nombre }}</h5>
+          <p class="card-text">Precio: {{ formatPrice(producto.precio) }}</p>
+          <button (click)="agregarAlCarrito(producto)" class="btn boton-añadircarrito" [disabled]="!producto.stock">
+            {{ producto.stock ? 'Agregar al carrito' : 'Agotado' }}
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

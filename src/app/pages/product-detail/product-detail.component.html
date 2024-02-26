@@ -1,0 +1,32 @@
+<div class="product-detail-container mt-5 container" style="padding-top: 3rem;" *ngIf="producto">
+  <div class="product-image">
+    <img [src]="producto.imagen" alt="{{ producto.nombre }}">
+  </div>
+  <div class="product-details">
+    <h1>{{ producto.nombre }}</h1>
+    <!-- <p class="product-ref">Ref 1377/228/251</p> -->
+    <p class="card-text" style="font-size: x-large;" *ngIf="producto.precio">Precio: {{ formatPrice(producto.precio) }}</p>
+    <div class="product-sizes">
+      <h6 class=" mb-3 mt-3">Selecciona talla</h6>
+      <div class="size-options">
+        <input type="radio" id="size-s" name="size" value="S">
+        <label for="size-s">S</label>
+        <input type="radio" id="size-m" name="size" value="M">
+        <label for="size-m">M</label>
+        <input type="radio" id="size-l" name="size" value="L">
+        <label for="size-l">L</label>
+      </div>
+      <button (click)="agregarAlCarrito(producto)" class="btn boton-añadircarrito" [disabled]="!producto.stock">
+        {{ producto.stock ? 'Agregar al carrito' : 'Agotado' }}
+      </button>
+    <div class="size-guide">
+      <h3>Guía de tallas</h3>
+      <p>Talla modelo: L  |  Altura modelo: 184 cm</p>
+    </div>
+    <div class="payment-options">
+      <p class="servicios">Paga a plazos sin intereses</p>
+      <p class="servicios">Recogida en tienda GRATIS</p>
+      <p class="servicios">Envío a domicilio estándar GRATIS en pedidos superiores a 30 €</p>
+    </div>
+  </div>
+</div>

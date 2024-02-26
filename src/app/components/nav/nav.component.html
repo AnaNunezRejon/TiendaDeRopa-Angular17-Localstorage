@@ -1,0 +1,63 @@
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="background-color: rgb(233, 55, 85);">
+  <div class="container">
+
+    <!-- Botón de menú  -->
+    <button id="menuBtn" class=" btn btn-menu d-none d-lg-block" (click)="toggleMenu()">
+      MENU
+    </button>
+
+    <!-- Botón de menú toggle -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" (click)="toggleMenu()">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Logo marca -->
+    <div class="logo">
+      <a class="navbar-brand mx-auto logo-marca" [routerLink]="['/home']">DELICIADESIGN</a>
+    </div>
+
+    <!-- Carrito -->
+    <div class="ms-auto order-lg-2">
+      <a class="link-navegador carrito" routerLinkActive="active" [routerLink]="['/carrito']">
+        Carrito <span class="badge badge-pill badge-primary" style="font-size: large;">{{ numProductosEnCarrito }}</span>
+      </a>
+    </div>
+
+    <!-- Buscador -->
+    <form class="form-inline my-1 my-lg-0 d-flex order-lg-last justify-content-between gap-3">
+      <input class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0 boton-buscar" type="submit">Buscar</button>
+    </form>
+  </div>
+</nav>
+
+<div class="container collapse navbar-collapse desplegable" id="navbarNav" [ngClass]="{ 'show': isMenuToggleActive }" (mouseleave)="hideMenu()"
+  style="margin-top: 56px; z-index: 1001;">
+  <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+    <li class="nav-item">
+      <a class="link-navegador" routerLinkActive="active" [routerLink]="['/home']">Home</a>
+    </li>
+    <li class="nav-item">
+      <a class="link-navegador" routerLinkActive="active" [routerLink]="['/home/sudaderas']">Sudaderas</a>
+    </li>
+    <li class="nav-item">
+      <a class="link-navegador" routerLinkActive="active" [routerLink]="['/home/pantalones']">Pantalones</a>
+    </li>
+    <li class="nav-item">
+      <a class="link-navegador" routerLinkActive="active" [routerLink]="['/home/camisetas']">Camisetas</a>
+    </li>
+    <li class="nav-item">
+      <a class="link-navegador" routerLinkActive="active" [routerLink]="['/home/zapatillas']">Zapatillas</a>
+    </li>
+    <li class="nav-item">
+      <a class="link-navegador" routerLinkActive="active" [routerLink]="['/home/accesorios']">Accesorios</a>
+    </li>
+    <li class="nav-item">
+      <a class="link-navegador" routerLinkActive="active" [routerLink]="['/productos']">Todos los productos</a>
+    </li>
+
+  </ul>
+</div>
+
+

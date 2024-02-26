@@ -1,0 +1,16 @@
+<div class="banner">
+  <img src="./assets/img/banner1.jpg" alt="Banner" class="img-fluid" style="object-fit: cover;">
+</div>
+<div class="container-fluid container contenedor">
+  <div class="row justify-content-around">
+    <div class="col-md-2" *ngFor="let categoria of categorias">
+      <div class="caja">
+        <a [routerLink]="['/home', categoria.nombre.toLowerCase()]">
+          <img [src]="'' + categoria.imagen" alt="{{ categoria.nombre }}" class="img-fluid imagen-categoria" >
+        </a>
+        <button class="btn btn-white text-center align-self-center" [routerLink]="['/home', categoria.nombre.toLowerCase()]" >{{ categoria.nombre }}</button>
+      </div>
+    </div>
+  </div>
+</div>
+<br>
